@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+import django_heroku
+django_heroku.settings(locals())
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -7,7 +9,7 @@ SECRET_KEY = 'django-insecure-@ct4(ge6w*1u1vpit8m&&2%khjxsjr@odejs^0^czby01ou_az
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1:8000','softcom-startup.herokuapp.com']
 
 INSTALLED_APPS = [
     # admin panel
