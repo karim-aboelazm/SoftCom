@@ -1,13 +1,7 @@
-/**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://www.facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
- */
-
 (function ($) {
-  "use strict";
-  $(".video-play").modalVideo();
+  // "use strict";
+  // $(".video-play").modalVideo();
+  
 
   $(".portfolio-single-slider").slick({
     infinite: true,
@@ -145,3 +139,4 @@
     time: 1000,
   });
 })(jQuery);
+

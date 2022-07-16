@@ -12,37 +12,15 @@
 
 			<div class="col-lg-7 col-xs-12 col-md-12">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6">
+					
+					{% for cat  , icon in cat_and_icon %}
+					<div class="col-lg-6 col-md-6 col-sm-6 mb-5">
 						<div class="icon-block text-center mb-4 mb-lg-0">
-							<i class="ti-light-bulb"></i>
-							<h5>Data analysis</h5>
-							<p>A complete web app solution for business</p>
+							<i class={{icon}}></i>
+							<h5>{{cat}}</h5>
 						</div>
 					</div>
-
-					<div class="col-lg-6 col-md-6 col-sm-6">
-						<div class="icon-block text-center mt-4 mb-4 mb-lg-0">
-							<i class="ti-panel"></i>
-							<h5>Web Development</h5>
-							<p>A complete web app solution for business</p>
-						</div>
-					</div>
-
-					<div class="col-lg-6 col-md-6 col-sm-6">
-						<div class="icon-block text-center">
-							<i class="ti-search"></i>
-							<h5>Content Mangement</h5>
-							<p>A complete web app solution for business</p>
-						</div>
-					</div>
-
-					<div class="col-lg-6 col-md-6 col-sm-6">
-						<div class="icon-block text-center mt-4">
-							<i class="ti-rocket"></i>
-							<h5>Mobility</h5>
-							<p>A complete web app solution for business</p>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>	
 		</div>

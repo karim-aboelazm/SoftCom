@@ -4,7 +4,7 @@ from .models import *
 tables = [Company,Job_Categories,
           Jobs,Services,Projects_had_done,
           Projects_had_not_done,OurTeam,
-          Testimonial,OurStatistics]
+          Testimonial,OurStatistics,Reward]
 
 for table in tables:
     admin.site.register(table)

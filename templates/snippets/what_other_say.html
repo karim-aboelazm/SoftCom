@@ -14,82 +14,20 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12 testimonial-wrap">
+				{% for other in others  %}
 				<div class="testimonial-block">
-					<p>
-						Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-					</p>
-
+					<p>{{other.letter}}</p>
 					<div class="client-info d-flex align-items-center">
 						<div class="client-img">
-							<img src="{% static '' %}images/team/testimonial1.jpg" alt="" class="img-fluid">
+							<img src="{{other.image.url}}" alt="" class="img-fluid">
 						</div>
 						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
+							<h6>{{other.name}}</h6>
+							<span>{{other.address}}</span>
 						</div>
 					</div>
 				</div>
-
-				<div class="testimonial-block">
-					<p>
-						Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-					</p>
-
-					<div class="client-info d-flex align-items-center">
-						<div class="client-img">
-							<img src="{% static '' %}images/team/testimonial2.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
-						</div>
-					</div>
-				</div>
-				<div class="testimonial-block">
-					<p>
-						Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-					</p>
-
-					<div class="client-info d-flex align-items-center">
-						<div class="client-img">
-							<img src="{% static '' %}images/team/testimonial1.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
-						</div>
-					</div>
-				</div>
-				<div class="testimonial-block">
-					<p>
-						Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-					</p>
-
-					<div class="client-info d-flex align-items-center">
-						<div class="client-img">
-							<img src="{% static '' %}images/team/testimonial2.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
-						</div>
-					</div>
-				</div>
-				<div class="testimonial-block">
-					<p>
-						Maiores quasi placeat harum itaque, ducimus cumque quas expedita hic. Qui ullam iste provident mollitia expedita facilis fuga repellat.
-					</p>
-
-					<div class="client-info d-flex align-items-center">
-						<div class="client-img">
-							<img src="{% static '' %}images/team/testimonial1.jpg" alt="" class="img-fluid">
-						</div>
-						<div class="info">
-							<h6>John Partho</h6>
-							<span>Newyork USA</span>
-						</div>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "snippets/navbar_secondary.html" %}
+<section class="page-title bg-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <span class="text-white">Single details</span>
+            <h1 class="text-capitalize mb-5 text-lg">Project Details</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="section case-study">
+      <div class="container">
+          <div class="row">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="case-img">
+                          <img src="{{project.image.url}}" style="width:100%;height:420px;" alt="" class="img-fluid">
+                      </div>
+                  </div>
+  
+                  <div class="col-lg-6 col-md-8">
+                      <div class="case-content pl-4 mt-4 mt-lg-0">
+                          <h3 class="mb-3">Engaging content and flexible User experience help to grow more</h3>
+  
+                          <p>{{project.details}}</p>
+  
+                          <ul class="list-unstyled project-info-list">
+                              <li><strong>Project Name: </strong>{{project.title}}</li>
+  
+                              <li><strong>Client: </strong>{{project.client}}</li>
+                              <li><strong>Project Start Date:</strong>{{project.start_date}}</li>
+  
+                              <li><strong>Project Completion Date:</strong>{{project.end_date}}</li>
+                              <li><strong>Project url:</strong>{{project.project_url}}</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>  
+{% endblock content %}

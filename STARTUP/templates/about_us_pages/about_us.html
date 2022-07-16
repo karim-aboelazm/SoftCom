@@ -23,26 +23,25 @@
 				<div class="heading text-center">
 					<h2>We help entreprenuers <br>starts up and turn <span class="text-color">their ideas into</span> produtcs</h2>
 				</div>
-
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="counter-item counter--style text-center mb-5 mb-lg-0">
 							<i class="ti-thumb-up"></i>
-							<h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">1730</span> +</h2>
+							<h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">{{statistics.project_done_no}}</span> +</h2>
 							<p>Project Done</p>
 						</div>	
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="counter-item counter--style text-center mb-5 mb-lg-0">
 							<i class="ti-face-smile"></i>
-							<h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">125 </span>M </h2>
+							<h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">{{statistics.users_world_no}} </span>M </h2>
 							<p>User Worldwide</p>
 						</div>	
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="counter-item counter--style text-center">
 							<i class="ti-cup"></i>
-							<h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">14</span></h2>
+							<h2 class="mb-0 mt-3"><span class="counter-stat font-weight-bold">{{statistics.award_winners_no}}</span></h2>
 							<p>Award Winner </p>
 						</div>
 					</div>
@@ -58,8 +57,7 @@
       <div class="col-lg-6">
         <div class="heading feature-list">
           <h2 class="mb-4">Growing Software Company Since 2008</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint earum, eos esse non error facilis ad,
-            maiores eum quae vero libero voluptas! Reprehenderit sunt similique, quae quidem voluptatem odit natus.</p>
+          <p style="text-align:justify ;">{{com.description}}</p>
 
           <ul class="list-unstyled mt-4 mb-5">
             <li><i class="ti-check mr-3"></i>Create and manage any process for your business needs.</li>
@@ -67,16 +65,71 @@
             <li><i class="ti-check mr-3"></i>Full functionality without needed to install software.</li>
           </ul>
 
-          <a href="service.html" class="btn btn-main">All Services<i class="fa fa-angle-right ml-2"></i></a>
+          <a href="{% url 'startup:services' %}" class="btn btn-main">All Services<i class="fa fa-angle-right ml-2"></i></a>
         </div>
       </div>
 
       <div class="col-lg-6">
         <div class="video-img">
           <img src="{% static '' %}images/about/img-34.png" alt="" class="img-fluid">
-          <a data-video-id="sXoKSD8QJEA" class="video-play"><i class="ti-control-play"></i></a>
+            <!-- Button trigger modal -->
+          <a type="button" class="video-play video-btn" data-toggle="modal" data-target="#myModal">
+            <i class="ti-control-play"></i>
+          </a>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="background:transparent;border:none;">
+                <div class="modal-body" style="background:transparent;border:none;">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>        
+                  <!-- 16:9 aspect ratio -->
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <video width="100%" height="100%" controls autoplay poster="{% static '' %}images/team/poster.jpg">
+                      <source src="{{com.define_video.url}}" type="video/mp4">
+                    </video>
+                  </div>     
+                </div>
+              </div>
+            </div>
+          </div> 
+          <style>
+            .modal-dialog {
+              max-width: 900px;
+              margin: 30px auto;
+              }
+              .modal-body {
+                position:relative;
+                padding:0px;
+              }
+              .close {
+                position:absolute;
+                right:-30px;
+                top:0;
+                z-index:999;
+                font-size:2rem;
+                font-weight: normal;
+                color:#fff;
+                opacity:1;
+              }
+          </style>
+
+          <script>
+            $(document).ready(function() {
+            var $videoSrc;  
+            $('.video-btn').click(function() {$videoSrc = $(this).data( "src" );});
+            console.log($videoSrc); 
+            $('#myModal').on('shown.bs.modal', function (e) {
+            $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" );})
+            $('#myModal').on('hide.bs.modal', function (e) {
+              $("#video").attr('src',$videoSrc);})});
+          </script>
+          </div>
         </div>
       </div>
+
+     
     </div>
   </div>
 </section>
@@ -93,99 +146,41 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="team-block mb-5 mb-lg-0">
-					<img src="{% static '' %}images/team/03-1.jpg" alt="" class="img-fluid w-100">
-
-					<h4 class="mt-4 mb-0">John Marshal</h4>
-					<p>Founder</p>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="team-block mb-5 mb-lg-0">
-					<img src="{% static '' %}images/team/01-3.jpg" alt="" class="img-fluid w-100">
-
-					<h4 class="mt-4 mb-0">Marshal Root</h4>
-					<p>Marketing Head</p>
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="team-block mb-5 mb-lg-0">
-					<img src="{% static '' %}images/team/03-1.jpg" alt="" class="img-fluid w-100">
-
-					<h4 class="mt-4 mb-0">Siamon john</h4>
-					<p>Co-ordinator</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="team-block">
-					<img src="{% static '' %}images/team/01-3.jpg" alt="" class="img-fluid w-100">
-
-					<h4 class="mt-4 mb-0">Rishat Ahmed</h4>
-					<p>Senior Developer</p>
-				</div>
-			</div>
-		</div>
+      {% for team in teams %}
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="team-block mb-5 mb-lg-0">
+            <img src="{{team.image.url}}" alt="" style="height:374.59px" class="img-fluid w-100">
+            <h4 class="mt-4 mb-0">{{team.name}}</h4>
+            <p>{{team.job}}</p>
+          </div>
+        </div>
+      {% endfor %}
+			
+  	</div>
 	</div>
 </section>
 
 <section class="section awards bg-light">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
-        <div class="why-content">
-          <h2 class="mb-4">Honors and awards</h2>
-          <p class="mb-5">Dicta cupiditate, incidunt quia obcaecati itaque cumque, nostrum ipsum est voluptatibus, porro
-            provident a quam quibusdam. Ducimus possimus, nesciunt minima magni aspernatur.</p>
+      <div class="col-md-12">
+        <div class="why-content mx-auto">
+          <h2 class="mb-4 text-center" style="text-align:center;">Honors and awards</h2>
         </div>
       </div>
     </div>
 
     <div class="row">
+      {% for reward in rewards  %}
       <div class="col-lg-2 col-md-3 col-sm-4">
         <div class="award-img-block mb-4 mb-lg-0">
           <div class="award-img">
-            <img src="{% static '' %}images/about/02.png" alt="" class="img-fluid">
+            <img src="{{reward.image.url}}" alt="" class="img-fluid">
           </div>
         </div>
       </div>
-      <div class="col-lg-2 col-md-3 col-sm-4">
-        <div class="award-img-block mb-4 mb-lg-0">
-          <div class="award-img">
-            <img src="{% static '' %}images/about/03.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-4">
-        <div class="award-img-block mb-4 mb-lg-0">
-          <div class="award-img">
-            <img src="{% static '' %}images/about/04.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-4">
-        <div class="award-img-block mb-4 mb-lg-0">
-          <div class="award-img">
-            <img src="{% static '' %}images/about/05.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-4">
-        <div class="award-img-block mb-4 mb-lg-0">
-          <div class="award-img">
-            <img src="{% static '' %}images/about/06.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-4">
-        <div class="award-img-block">
-          <div class="award-img">
-            <img src="{% static '' %}images/about/07.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
+      {% endfor %}
+      
     </div>
   </div>
 </section>
