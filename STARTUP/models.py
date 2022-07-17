@@ -96,14 +96,6 @@ class OurTeam(models.Model):
     def __str__(self):
         return self.name.capitalize()
         
-class Testimonial(models.Model):
-    name  = models.CharField(max_length=255)
-    address = models.CharField(max_length=400)
-    image = models.ImageField(upload_to='testimonial/') 
-    letter = models.TextField()
-    def __str__(self):
-        return self.name.capitalize()
-
 class OurStatistics(models.Model):
     project_done_no       = models.IntegerField(default=0)
     users_world_no        = models.IntegerField(default=0)
@@ -121,7 +113,6 @@ class Reward(models.Model):
     image    = models.ImageField(upload_to='reward/')
     def __str__(self):
         return "Reward - "+ str(self.id)
-
 
 class Site_bg_Images(models.Model):
     home_page_img1 = models.ImageField(upload_to='site_bg_images/', blank=True)
