@@ -1,4 +1,4 @@
-/* @keyframes modal-video {
+@keyframes modal-video {
     from {
         opacity: 0
     }
@@ -16,7 +16,7 @@
     to {
         transform: translate(0, 0)
     }
-} */
+}
 
 .modal-video {
     display: none;
