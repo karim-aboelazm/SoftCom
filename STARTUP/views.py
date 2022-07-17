@@ -7,7 +7,6 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["com"] = Company.objects.latest('pk')
-        context["others"] = Testimonial.objects.all()
         context["statistics"] = OurStatistics.objects.latest('pk')
         context["categories"] = Job_Categories.objects.all()
         context["cat_and_icon"] = zip(context["categories"],["ti-light-bulb","ti-panel","ti-search","ti-rocket"])
@@ -20,7 +19,6 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["com"] = Company.objects.latest('pk')
-        context["others"] = Testimonial.objects.all()
         context["teams"] = OurTeam.objects.all()
         context["statistics"] = OurStatistics.objects.latest('pk')
         context["rewards"]= Reward.objects.all()
