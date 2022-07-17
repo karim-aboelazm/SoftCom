@@ -11,6 +11,8 @@ class HomeView(TemplateView):
         context["statistics"] = OurStatistics.objects.latest('pk')
         context["categories"] = Job_Categories.objects.all()
         context["cat_and_icon"] = zip(context["categories"],["ti-light-bulb","ti-panel","ti-search","ti-rocket"])
+        context["project_done"] = Projects_had_done.objects.all().order_by('-pk')
+        context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
 
 class AboutView(TemplateView):
@@ -23,6 +25,7 @@ class AboutView(TemplateView):
         context["statistics"] = OurStatistics.objects.latest('pk')
         context["rewards"]= Reward.objects.all()
         context["categories"] = Job_Categories.objects.all()
+        context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
 
 
@@ -32,6 +35,9 @@ class ServiesView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["com"] = Company.objects.latest('pk')
         context["categories"] = Job_Categories.objects.all()
+        context["services"] = Services.objects.all()
+        context["work_steps"] = Work_Steps.objects.all()
+        context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
 
 class ContactView(TemplateView):
@@ -40,6 +46,8 @@ class ContactView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["com"] = Company.objects.latest('pk')
         context["categories"] = Job_Categories.objects.all()
+        context["pranches"] = Pranches.objects.all().order_by('pk')
+        context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
 
 class Project_Done_Details(TemplateView):
@@ -50,4 +58,5 @@ class Project_Done_Details(TemplateView):
         context["project"] = Projects_had_done.objects.get(slug=project_slug)
         context["com"] = Company.objects.latest('pk')
         context["categories"] = Job_Categories.objects.all().order_by('-pk')
+        context["bg"] = Site_bg_Images.objects.latest('pk')
         return context

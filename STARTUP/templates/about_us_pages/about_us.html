@@ -1,21 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
-{% block content %}
-{% include "snippets/navbar_secondary.html" %}
 
-<section class="page-title bg-1">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="block text-center">
-          <span class="text-white">About Us</span>
-          <h1 class="text-capitalize mb-5 text-lg">Our Company</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% block header2_content %}
+<span class="text-white">About Us</span>
+<h1 class="text-capitalize mb-5 text-lg">Our Company</h1>
+{% endblock header2_content %}
 
+
+{% block content2 %}
 <section class="section ">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -86,7 +78,7 @@
                   </button>        
                   <!-- 16:9 aspect ratio -->
                   <div class="embed-responsive embed-responsive-16by9">
-                    <video width="100%" height="100%" controls autoplay poster="{% static '' %}images/team/poster.jpg">
+                    <video width="100%" height="100%" controls poster="{% static '' %}images/team/poster.jpg">
                       <source src="{{com.define_video.url}}" type="video/mp4">
                     </video>
                   </div>     
@@ -185,4 +177,4 @@
   </div>
 </section>
 {% include "snippets/what_other_say.html" %}
-{% endblock content %}
+{% endblock content2 %}

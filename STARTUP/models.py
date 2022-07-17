@@ -24,6 +24,14 @@ class Company(models.Model):
     def __str__(self):
         return self.title
 
+class Pranches(models.Model):
+    title    = models.CharField(max_length=255)
+    location = models.CharField(max_length=500)
+    email    = models.EmailField(max_length=100)
+    phone    = models.CharField(max_length=15)
+    def __str__(self):
+        return self.title.capitalize()
+
 class Job_Categories(models.Model):
     category    = models.CharField(max_length=200)
     def __str__(self):
@@ -40,6 +48,13 @@ class Services(models.Model):
     title       = models.CharField(max_length=255)
     description = models.TextField()
     image       = models.ImageField(upload_to='services/')
+    def __str__(self):
+        return self.title.capitalize()
+
+class Work_Steps(models.Model):
+    title       = models.CharField(max_length=255)
+    description = models.TextField()
+    image       = models.ImageField(upload_to='work_steps/')
     def __str__(self):
         return self.title.capitalize()
 
@@ -106,4 +121,12 @@ class Reward(models.Model):
     image    = models.ImageField(upload_to='reward/')
     def __str__(self):
         return "Reward - "+ str(self.id)
-    
+
+
+class Site_bg_Images(models.Model):
+    home_page_img1 = models.ImageField(upload_to='site_bg_images/', blank=True)
+    home_page_img2 = models.ImageField(upload_to='site_bg_images/', blank=True)
+    bar_img        = models.ImageField(upload_to='site_bg_images/', blank=True)
+
+    def __str__(self):
+        return "SoftCom Background Images" 

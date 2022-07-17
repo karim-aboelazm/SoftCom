@@ -1,0 +1,36 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SoftCom</title>
+		{% include "snippets/head.html" %}
+	</head>
+	<body>
+        {% include "snippets/navbar_secondary.html" %}
+        <section class="page-title bg-1">
+            <style>
+               .bg-1 {
+                background: url("{{bg.bar_img.url}}") no-repeat 50% 50%;
+                background-size: cover;
+                }
+            </style>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="block text-center">
+                    {% block header2_content %}
+                      
+                    {% endblock header2_content %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+		{% block content2 %}
+		
+		{% endblock content2 %}
+		{% include "snippets/footer.html" %}
+		{% include "snippets/scripts.html" %}
+	</body>
+</html>
+	

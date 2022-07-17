@@ -1,20 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
-{% block content %}
-{% include "snippets/navbar_secondary.html" %}
-<section class="page-title bg-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="block text-center">
-            <span class="text-white">Single details</span>
-            <h1 class="text-capitalize mb-5 text-lg">Project Details</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+{% block header2_content %}
+<span class="text-white">Single details</span>
+<h1 class="text-capitalize mb-5 text-lg">Project Details</h1>
+{% endblock header2_content %}
+
+{% block content2 %}
   
   <section class="section case-study">
       <div class="container">
@@ -47,4 +38,4 @@
           </div>
       </div>
   </section>  
-{% endblock content %}
+{% endblock content2 %}
