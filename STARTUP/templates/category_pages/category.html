@@ -1,0 +1,52 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block header2_content %}
+<span class="text-white">All Categories</span>
+<h1 class="text-capitalize mb-5 text-lg">All Jobs Categories</h1>
+{% endblock header2_content %}
+
+
+{% block content2 %}
+<!-- content start -->
+{% for cat in categories  %}
+<div class="container-fluid mt-5">
+		
+    <div class="jumbotron">
+        <h1 class="text-center"><i class="fa fa-search" aria-hidden="true"></i> {{cat}}</h1>
+    </div>
+    {% if cat.projects_had_done.all|length|divisibleby:"4" %}
+    <div class="row flex ">
+        {% for pro in cat.projects_had_done_set.all %}
+        <div class="col-lg-3 col-md-6">
+            <div class="portflio-item position-relative mb-4">
+                <a class="thumbnail" href="{% url 'startup:project_done_details' pro.slug %}">
+                    <img src="{{pro.image.url}}" alt="" class="img-fluid w-100">
+                    <div class="overlay-item"><i class="ti-link mb-3"></i></div>	
+                    <div class="portfolio-item-content">
+                        <h3 class="mb-0 text-white">{{pro.title}}</h3>
+                        <p class="text-white-50">{{pro.category}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+   
+
+</div>
+{% endfor %}
+
+<style>
+    
+    .jumbotron {
+        color: #284738;
+        background: #dce2df59;
+    }
+    .flex {
+    display: flex;
+    flex-wrap: wrap;
+    }
+</style>
+{% endblock content2 %}

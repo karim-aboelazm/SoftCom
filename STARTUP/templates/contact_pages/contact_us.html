@@ -16,31 +16,10 @@
 
         <div class="row">
           <div class="col-lg-8">
-            <form id="contact-form" class="contact__form " method="post" action="mail.php">
-              <!-- form message -->
-              <div class="row">
-                <div class="col-12">
-                  <div class="alert alert-success contact__msg" style="display: none" role="alert">
-                    Your message was sent successfully.
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>I Need help in ...</option>
-                  {% for cat in categories  %} 
-                  <option>{{cat}}</option>
-                  {% endfor %}
-                </select>
-              </div>
-
+            <form  class="" method="post" action="/contact-us/">
+              {% csrf_token %}
               <div class="form-group">
                 <input name="subject" id="subject" type="text" class="form-control" placeholder="Your Subject">
-              </div>
-
-              <div class="form-group">
-                <input name="name" id="name" type="text" class="form-control" placeholder="Your Name">
               </div>
 
               <div class="form-group">
@@ -48,10 +27,9 @@
               </div>
 
               <div class="form-group-2 mb-4">
-                <textarea name="message" id="message" class="form-control" rows="4"
-                  placeholder="Your Message"></textarea>
+                <textarea name="msg" id="message" class="form-control" rows="6" style="height: 200px;" placeholder="Your Message"></textarea>
               </div>
-              <button class="btn btn-main" name="submit" type="submit">Send Message</button>
+              <button class="col-md-12 btn btn-main" name="submit" type="submit">Send Message</button>
             </form>
           </div>
 

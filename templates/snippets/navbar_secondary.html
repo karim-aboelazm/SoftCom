@@ -18,15 +18,7 @@
 			</li>
 			<li class="nav-item"><a class="nav-link" href="{% url 'startup:about' %}">About</a></li>
 			<li class="nav-item"><a class="nav-link" href="{% url 'startup:services' %}">Services</a></li>
-			
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Job Categories</a>
-				<ul class="dropdown-menu" aria-labelledby="dropdown05">
-					{% for cat in categories  %}
-						<li><a class="dropdown-item" href="blog-sidebar.html">{{cat}}</a></li>
-					{% endfor %}
-				</ul>
-			</li>
+			<li class="nav-item "><a class="nav-link" href="{% url 'startup:category' %}">Job Categories</a></li>
 			<li class="nav-item"><a class="nav-link" href="{% url 'startup:contact' %}">Contact</a></li>
 		</ul>
 		</div>

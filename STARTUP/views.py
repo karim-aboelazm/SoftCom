@@ -1,5 +1,10 @@
-from django.views.generic import TemplateView,DetailView
+from django.views.generic import TemplateView,DetailView,ListView,FormView
 from django.shortcuts import render
+from .froms import ContactForm
+from django.urls import reverse_lazy,reverse
+from django.core.mail import send_mail
+from django.conf import settings
+
 from .models import *
 
 class HomeView(TemplateView):
@@ -26,7 +31,6 @@ class AboutView(TemplateView):
         context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
 
-
 class ServiesView(TemplateView):
     template_name = 'services_pages/services.html'
     def get_context_data(self, **kwargs):
@@ -38,8 +42,18 @@ class ServiesView(TemplateView):
         context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
 
-class ContactView(TemplateView):
+class ContactView(FormView):
     template_name = 'contact_pages/contact_us.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('startup:contact')
+    def form_valid(self,form):
+        subject = form.cleaned_data.get('subject')
+        email = form.cleaned_data['email']
+        msg = form.cleaned_data['msg']
+        myemail = settings.EMAIL_HOST_USER
+        send_mail(subject,msg,myemail,[email],fail_silently = False)
+        return super().form_valid(form)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["com"] = Company.objects.latest('pk')
@@ -48,7 +62,7 @@ class ContactView(TemplateView):
         context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
 
-class Project_Done_Details(TemplateView):
+class Project_Done_DetailsView(TemplateView):
     template_name = 'project_done_pages/project_done_details.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -56,5 +70,15 @@ class Project_Done_Details(TemplateView):
         context["project"] = Projects_had_done.objects.get(slug=project_slug)
         context["com"] = Company.objects.latest('pk')
         context["categories"] = Job_Categories.objects.all().order_by('-pk')
+        context["bg"] = Site_bg_Images.objects.latest('pk')
+        return context
+
+class CategoryView(TemplateView):
+    template_name = 'category_pages/category.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["com"] = Company.objects.latest('pk')
+        context["categories"] = Job_Categories.objects.all()
         context["bg"] = Site_bg_Images.objects.latest('pk')
         return context
